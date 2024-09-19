@@ -183,4 +183,38 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 		
 	}
 
+	@Override
+	public boolean checkVarification(String email, String username) {
+		boolean duplicate = false;
+		String query = "select * from users where email = ? and username = ?";
+		try {
+			conn = super.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+			ps.setString(2, username);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+			duplicate = true;
+			}
+			ps.close();
+			conn.close();
+		} catch (Exception ex) {}
+		return duplicate;
+	}
+
+	@Override
+	public boolean resetPassword(String username, String password) {
+		String sql = "Update users set password = ? where username = ?";
+		try {
+			conn = super.getDatabaseConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setString(2, username);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {e.printStackTrace();}
+		return false;
+		
+	}
+
 }

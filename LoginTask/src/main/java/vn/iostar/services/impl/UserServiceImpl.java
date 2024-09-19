@@ -77,4 +77,15 @@ public class UserServiceImpl implements IUserService {
 		
 	}
 
+	@Override
+	public boolean checkVarification(String email, String username) {
+		return userDao.checkVarification(email,username);
+	}
+
+	@Override
+	public boolean resetPassword(String username, String password) {
+		return userDao.resetPassword(username, password);
+		
+	}
+
 }

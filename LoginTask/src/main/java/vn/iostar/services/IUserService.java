@@ -11,4 +11,6 @@ public interface IUserService {
 	boolean checkExistEmail(String email);
 	boolean checkExistUsername(String username);
 	boolean checkExistPhone(String phone);
+	boolean checkVarification(String email,String username);
+	boolean resetPassword(String username,String password);
 }
