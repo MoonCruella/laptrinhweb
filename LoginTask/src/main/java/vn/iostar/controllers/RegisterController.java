@@ -48,6 +48,7 @@ public class RegisterController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String repassword = req.getParameter("repassword");
 		String email = req.getParameter("email");
 		String fullname = req.getParameter("fullname");
 		String phone = req.getParameter("phone");
@@ -72,7 +73,12 @@ public class RegisterController extends HttpServlet {
 			req.getRequestDispatcher(Constant.REGISTER).forward(req, resp);
 			return;
 		}
-		
+		if(!service.checkMatchPassword(password, repassword)) {
+			alertMsg = "Mật khẩu không khớp, vui lòng kiểm tra lại!";
+			req.setAttribute("alert", alertMsg);
+			req.getRequestDispatcher(Constant.REGISTER).forward(req, resp);
+			return;
+		}
 		boolean isSuccess = service.register(username, password, email, fullname, phone);
 		if (isSuccess) {
 			req.setAttribute("alert", alertMsg);

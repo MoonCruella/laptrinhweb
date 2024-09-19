@@ -88,4 +88,13 @@ public class UserServiceImpl implements IUserService {
 		
 	}
 
+	@Override
+	public boolean checkMatchPassword(String password, String repassword) {
+		if(!repassword.equals(password))
+		{
+			return false;
+		}
+		return true;
+	}
+
 }

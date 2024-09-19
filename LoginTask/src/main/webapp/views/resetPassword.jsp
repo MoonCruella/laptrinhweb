@@ -27,7 +27,7 @@
 			  <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 			
 			  <label for="psw-repeat"><b>Repeat Password</b></label>
-			  <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+			  <input type="password" placeholder="Repeat Password" name="repassword" id="psw-repeat" required>
 		  <hr>
 		  <button type="submit" class="resetbtn">Reset Password</button>
 	  	</div>

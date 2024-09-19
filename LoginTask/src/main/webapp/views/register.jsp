@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
 	<form action="/LoginTask/register" method="post">
@@ -34,7 +34,7 @@
 			  <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 			
 			  <label for="psw-repeat"><b>Repeat Password</b></label>
-			  <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+			  <input type="password" placeholder="Repeat Password" name="repassword" id="psw-repeat" required>
 		  <hr>
 		
 		  <button type="submit" class="registerbtn">Register</button>

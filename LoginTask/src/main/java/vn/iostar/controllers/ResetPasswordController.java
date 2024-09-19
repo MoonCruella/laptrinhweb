@@ -27,6 +27,7 @@ public class ResetPasswordController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String repassword = req.getParameter("repassword");
 		String email = req.getParameter("email");
 		
 		IUserService service = new UserServiceImpl();
@@ -38,7 +39,12 @@ public class ResetPasswordController extends HttpServlet {
 			req.getRequestDispatcher(Constant.RESETPASSWORD).forward(req, resp);
 			return;
 			}
-		
+		if(!service.checkMatchPassword(password, repassword)) {
+			alertMsg = "Mật khẩu không khớp, vui lòng kiểm tra lại!";
+			req.setAttribute("alert", alertMsg);
+			req.getRequestDispatcher(Constant.RESETPASSWORD).forward(req, resp);
+			return;
+		}
 		boolean isSuccess = service.resetPassword(username, password);;
 		if (isSuccess) {
 			alertMsg = "Đổi mật khẩu thành công!";
