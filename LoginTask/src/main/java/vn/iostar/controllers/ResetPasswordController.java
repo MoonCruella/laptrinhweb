@@ -12,7 +12,7 @@ import vn.iostar.services.impl.UserServiceImpl;
 import vn.iostar.utils.Constant;
 
 @WebServlet(urlPatterns = "/resetPassword")
-public class resetPassword extends HttpServlet {
+public class ResetPasswordController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	@Override
