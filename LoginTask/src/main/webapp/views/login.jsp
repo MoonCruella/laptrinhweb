@@ -28,8 +28,10 @@
 	  </div>
 	
 	  <div class="container" style="background-color:#f1f1f1">
-	    <button type="button" class="cancelbtn">Cancel</button>
-	    <span class="psw">Forgot <a href="${pageContext.request.contextPath }/resetPassword">password?</a></span>
+		<a href= "${pageContext.request.contextPath }/logout">
+			<button type="button" class="cancelbtn">Cancel</button>	  
+		</a>
+		<span class="psw">Forgot <a href="${pageContext.request.contextPath}/resetPassword">password?</a></span>
 	  </div>
 	</form>
 </body>

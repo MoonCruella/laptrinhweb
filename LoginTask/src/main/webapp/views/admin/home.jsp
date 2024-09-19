@@ -8,5 +8,8 @@
 </head>
 <body>
 	trang chu cua admin
+	<a href="${pageContext.request.contextPath}/logout">
+	    <button type="button" class="logoutbtn">Log out</button>
+	</a>
 </body>
 </html>
